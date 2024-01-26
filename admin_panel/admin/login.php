@@ -1,5 +1,9 @@
 <?php include 'layout/top.php'; ?>
-
+<?php 
+if (isset($_SESSION['admin'])) {
+    header('location:' .ADMIN_URL. 'dashboard.php');
+}
+?>
 <?php 
 if (isset($_POST['form_login'])) {
     try {
@@ -59,7 +63,7 @@ if (isset($_POST['form_login'])) {
                             </div>
                             <div class="form-group">
                                 <div>
-                                    <a href="forget-password.html">
+                                    <a href="<?php echo ADMIN_URL; ?>forget-password.php">
                                         Forget Password?
                                     </a>
                                 </div>
