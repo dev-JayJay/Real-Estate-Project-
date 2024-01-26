@@ -19,3 +19,5 @@ define("SMTP_HOST", "sandbox.smtp.mailtrap.io");
 define("SMTP_PORT", "587");
 define("SMTP_USERNAME", "2793e0bad694e8");
 define("SMTP_PASSWORD", "d11ece4ccaaa64");
+define("SMTP_ENCRYPTION", "tls");
+define("SMTP_FROM", "jay@website.com");
