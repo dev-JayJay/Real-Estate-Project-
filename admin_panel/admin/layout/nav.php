@@ -14,7 +14,11 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img alt="image" src="<?php echo BASE_URL; ?>uploads/user.jpg" class="rounded-circle-custom">
+                    <?php if ($_SESSION['admin']['photo'] == ''):?>
+                        <img alt="image" src="<?php echo BASE_URL; ?>uploads/default.png" class="rounded-circle-custom">
+                    <?php else: ?>
+                        <img alt="image" src="<?php echo BASE_URL; ?>uploads/<?php echo  $_SESSION['admin']['photo']; ?>" class="rounded-circle-custom">
+                    <?php endif; ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="<?php echo ADMIN_URL; ?>profile.php"><i class="far fa-user"></i> Edit Profile</a></li>
