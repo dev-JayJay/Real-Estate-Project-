@@ -136,7 +136,7 @@
         </script>
     <?php endif; ?>
     <!-- condition for registration success  -->
-    <?php if ($_SESSION['success_message']): ?>
+    <?php if (isset($_SESSION['success_message'])): ?>
         <script>
             iziToast.show({
                 message: '<?php echo $_SESSION['success_message']; ?>',
