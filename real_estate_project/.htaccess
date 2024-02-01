@@ -1,0 +1,8 @@
+RewriteEngine On 
+
+RewriteRule   ^select-user$                         select-user.php                         [NC,L]
+RewriteRule   ^customer-registration$               customer-registration.php               [NC,L]
+RewriteRule   ^customer-login$                      customer-login.php                      [NC,L]
+RewriteRule   ^customer-forget-password$            customer-forget-password.php            [NC,L]
+RewriteRule   ^customer-dashboard$                  customer-dashboard.php                  [NC,L]
+RewriteRule   ^customer-logout$                     customer-logout.php                     [NC,L]
