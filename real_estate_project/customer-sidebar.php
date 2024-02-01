@@ -24,8 +24,14 @@
         <li class="list-group-item">
             <a href="user-wishlist.html">Wishlist</a>
         </li>
-        <li class="list-group-item">
-            <a href="user-edit-profile.html">Edit Profile</a>
+        <li class="list-group-item
+        <?php
+        if ($cur_page == 'customer-edit-profile.php') {
+            echo 'active';
+        }
+        ?>
+        ">
+            <a href="customer-edit-profile.php">Edit Profile</a>
         </li>
         <li class="list-group-item">
             <a href="<?php echo BASE_URL; ?>customer-logout">Logout</a>
