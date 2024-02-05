@@ -22,8 +22,8 @@
                         <h3><a href="<?php echo BASE_URL; ?>customer-login">Customer Login</a></h3>
                     </div>
                     <div class="right-path-user">
-                    <h3><a href="<?php echo BASE_URL; ?>agent-registration.php">Agent Registration</a></h3>
-                    <h3><a href="<?php echo BASE_URL; ?>agent-login.php">Agent Login</a></h3>
+                    <h3><a href="<?php echo BASE_URL; ?>agent-registration">Agent Registration</a></h3>
+                    <h3><a href="<?php echo BASE_URL; ?>agent-login">Agent Login</a></h3>
                     </div>
                 </div>
             </div>
