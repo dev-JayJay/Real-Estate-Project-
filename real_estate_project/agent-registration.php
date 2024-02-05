@@ -106,7 +106,7 @@ if (isset($_POST['form_submit'])) {
                         </div>
                     </form>
                     <div class="mb-3">
-                        <a href="<?php echo BASE_URL; ?>customer-login" class="primary-color">Existing User? Login Now</a>
+                        <a href="<?php echo BASE_URL; ?>agent-login" class="primary-color">Existing User? Login Now</a>
                     </div>
                 </div>
             </div>

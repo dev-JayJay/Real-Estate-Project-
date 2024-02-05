@@ -99,9 +99,14 @@ $cur_page = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"],"/")
                                 <a href="<?php echo BASE_URL; ?>customer-dashboard" class="nav-link">Dashboard</a>
                             </li>
                             <?php endif; ?>
-                            <?php if(!isset($_SESSION['customers'])): ?>
+                            <?php if(isset($_SESSION['agents'])): ?>
                             <li class="nav-item">
-                                <a href="<?php echo BASE_URL; ?>customer-login" class="nav-link">Login</a>
+                                <a href="<?php echo BASE_URL; ?>agent-dashboard" class="nav-link">Dashboard</a>
+                            </li>
+                            <?php endif; ?>
+                            <?php if( !isset($_SESSION['customers']) && !isset($_SESSION['agents']) ): ?>
+                            <li class="nav-item">
+                                <a href="<?php echo BASE_URL; ?>select-user.php" class="nav-link">Login</a>
                             </li>
                             <?php endif; ?>
                         </ul>

@@ -15,7 +15,7 @@ if (isset($_POST['forget_password'])) {
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             throw new Exception("please enter correct email these email is invalid");            
         }
-        $q = $pdo->prepare("SELECT * FROM customers WHERE email=?");
+        $q = $pdo->prepare("SELECT * FROM agents WHERE email=?");
         $q->execute([$_POST['email']]);
         $total = $q->rowCount();
         if (!$total) {
@@ -23,11 +23,11 @@ if (isset($_POST['forget_password'])) {
         }
 
         $token = time();
-        $statement = $pdo->prepare("UPDATE customers SET token=? WHERE email=?");
+        $statement = $pdo->prepare("UPDATE agents SET token=? WHERE email=?");
         $statement->execute([$token, $_POST['email']]);
 
         $email_message = "please click the link to reset your password:<br>";
-        $email_message .= '<a href="'.BASE_URL.'customer-reset-password.php?email='.$_POST['email'].'& token='.$token.'">Reset_your_password</a>';
+        $email_message .= '<a href="'.BASE_URL.'agent-reset-password.php?email='.$_POST['email'].'& token='.$token.'">Reset_your_password</a>';
          
             try {
                 $mail = new PHPMailer (true);
@@ -60,7 +60,7 @@ if (isset($_POST['forget_password'])) {
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>Customer forget password</h2>
+                <h2>Agents forget passowrd</h2>
             </div>
         </div>
     </div>
@@ -80,7 +80,7 @@ if (isset($_POST['forget_password'])) {
                             <button type="submit" name="forget_password" class="btn btn-primary bg-website">
                                 Submit
                             </button>
-                                <a href="<?php echo BASE_URL; ?>customer-login" class="primary-color">Back to Login Page</a>
+                                <a href="<?php echo BASE_URL; ?>agent-login" class="primary-color">Back to Login Page</a>
                             </div>                          
                     </form>
                 </div>
