@@ -81,7 +81,7 @@ if (isset($_POST['forget_password'])) {
                                 Submit
                             </button>
                                 <a href="<?php echo BASE_URL; ?>agent-login" class="primary-color">Back to Login Page</a>
-                            </div>                          
+                        </div>                          
                     </form>
                 </div>
             </div>
