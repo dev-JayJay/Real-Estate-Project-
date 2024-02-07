@@ -49,7 +49,7 @@ if (isset($_POST['form_update'])) {
             }
         }
 
-        $success_message = "Profile data update successfully";
+        $success_massage = "Profile data update successfully";
 
         $_SESSION['admin']['full_name'] = $_POST['full_name'];
         $_SESSION['admin']['email'] = $_POST['email'];
@@ -65,16 +65,6 @@ if (isset($_POST['form_update'])) {
         <div class="section-header">
             <h1>Edit Profile</h1>
         </div>
-        <?php 
-        if (isset($success_message)) {
-            echo $success_message;
-        }
-        ?>
-        <?php 
-        if (isset($error_message)) {
-            echo $error_message;
-        }
-        ?>
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
