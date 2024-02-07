@@ -42,14 +42,6 @@ if (isset($_POST['reset_password'])) {
                                 <h4 class="text-center">Reset Password</h4>
                             </div>
                             <div class="card-body card-body-auth">
-                                <?php 
-                                if (isset($success_message)) {
-                                    echo $success_message;
-                                }
-                                if (isset($error_message)) {
-                                    echo $error_message;
-                                }
-                                ?>
                                 <form method="POST" action="">
                                     <div class="form-group">
                                         <input type="password" class="form-control" name="password_one" placeholder="Password" value="" autofocus>
@@ -69,4 +61,4 @@ if (isset($_POST['reset_password'])) {
                 </div>
             </div>
         </section>
-<?php include 'layout/footer.php'; ?>
+ <?php include 'layout/footer.php'; ?>

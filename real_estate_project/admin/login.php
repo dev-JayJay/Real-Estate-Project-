@@ -46,10 +46,6 @@ if (isset($_POST['form_login'])) {
                         <h4 class="text-center">Admin Panel Login</h4>
                     </div>
                     <div class="card-body card-body-auth">
-                        <?php 
-                        if (isset($error_message)) {
-                            echo $error_message;
-                        }?>
                         <form method="POST" action="">
                             <div class="form-group">
                                 <input type="email" class="form-control" name="email" placeholder="Email Address" value="" autofocus>
@@ -77,10 +73,4 @@ if (isset($_POST['form_login'])) {
     </div>
 </section>
     </div>
-</div>
-
-<script src="dist/js/scripts.js"></script>
-<script src="dist/js/custom.js"></script>
-
-</body>
-</html>
+<?php include 'layout/footer.php'; ?>

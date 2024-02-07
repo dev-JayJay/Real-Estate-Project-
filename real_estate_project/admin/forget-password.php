@@ -41,7 +41,9 @@ if (isset($_POST['forget_password'])) {
                 $mail->Subject = 'Reset Password';
                 $mail->Body = $email_message;
                 $mail->send();
-                $success_message = 'Please check your email and follow the steps.';
+
+                $success_massage = 'Please check your email and follow the steps.';
+
             } catch (Exception $e) {
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
             }
@@ -50,7 +52,7 @@ if (isset($_POST['forget_password'])) {
         $success_massage = 'please visit your email and follow instructions to reset password';
 
     } catch (Exception $e) {
-        $error_massage = $e->getMessage();
+        $error_message = $e->getMessage();
     }
 }
 ?>
@@ -63,14 +65,6 @@ if (isset($_POST['forget_password'])) {
                                 <h4 class="text-center">Reset Password</h4>
                             </div>
                             <div class="card-body card-body-auth">
-                            <?php 
-                                if (isset($success_massage)) {
-                                    echo $success_massage;
-                                }
-                                if (isset($error_massage)) {
-                                    echo $error_massage;
-                                }
-                                ?>
                                 <form method="POST" action="">
                                     <div class="form-group">
                                         <input type="email" class="form-control" name="email" placeholder="Email Address" value="" autofocus>
@@ -94,4 +88,4 @@ if (isset($_POST['forget_password'])) {
                 </div>
             </div>
         </section>
-<?php include 'layout/footer.php' ?>
+<?php include 'layout/footer.php'; ?>
