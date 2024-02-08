@@ -30,6 +30,13 @@
                         echo 'active';
                     }
                     ?>"><a class="nav-link" href="<?php echo ADMIN_URL; ?>setting.php"><i class="fas fa-hand-point-right"></i> <span>Setting</span></a></li>
+                    
+                    <li class="
+                    <?php 
+                    if ($cur_page == 'package-view.php' || $cur_page == 'package-add.php' || $cur_page == 'package-edit.php') {
+                        echo 'active';
+                    }
+                    ?>"><a class="nav-link" href="<?php echo ADMIN_URL; ?>package-view.php"><i class="fas fa-hand-point-right"></i> <span>Package</span></a></li>
 
                     <li class="
                     <?php 
