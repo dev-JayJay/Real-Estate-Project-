@@ -57,31 +57,31 @@ if (isset($_POST['form_submit'])) {
                             <form action="" method="post">
                                 <div class="form-group mb-3">
                                     <label>Name *</label>
-                                    <input type="text" class="form-control" name="name" value="<?php if(isset($_POST['name'])) {echo $_POST['name'];} ?>">
+                                    <input type="text" autocomplete='off' class="form-control" name="name" value="<?php if(isset($_POST['name'])) {echo $_POST['name'];} ?>">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Price *</label>
-                                    <input type="text" class="form-control" name="price" value="<?php if(isset($_POST['price'])) {echo $_POST['price'];} ?>">
+                                    <input type="text" autocomplete='off' class="form-control" name="price" value="<?php if(isset($_POST['price'])) {echo $_POST['price'];} ?>">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Allowed Days *</label>
-                                    <input type="text" class="form-control" name="allowed_days" value="<?php if(isset($_POST['allowed_days'])) {echo $_POST['allowed_days'];} ?>">
+                                    <input type="text" autocomplete='off' class="form-control" name="allowed_days" value="<?php if(isset($_POST['allowed_days'])) {echo $_POST['allowed_days'];} ?>">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Allowed Properties *</label>
-                                    <input type="text" class="form-control" name="allowed_properties" value="<?php if(isset($_POST['allowed_properties'])) {echo $_POST['allowed_properties'];} ?>">
+                                    <input type="text" autocomplete='off' class="form-control" name="allowed_properties" value="<?php if(isset($_POST['allowed_properties'])) {echo $_POST['allowed_properties'];} ?>">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Allowed Featured Properties *</label>
-                                    <input type="text" class="form-control" name="allowed_featured_properties" value="<?php if(isset($_POST['allowed_featured_properties'])) {echo $_POST['allowed_featured_properties'];} ?>">
+                                    <input type="text" autocomplete='off' class="form-control" name="allowed_featured_properties" value="<?php if(isset($_POST['allowed_featured_properties'])) {echo $_POST['allowed_featured_properties'];} ?>">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Allowed Photo *</label>
-                                    <input type="text" class="form-control" name="allowed_photo" value="<?php if(isset($_POST['allowed_photo'])) {echo $_POST['allowed_photo'];} ?>">
+                                    <input type="text" autocomplete='off' class="form-control" name="allowed_photo" value="<?php if(isset($_POST['allowed_photo'])) {echo $_POST['allowed_photo'];} ?>">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Allowed Videos *</label>
-                                    <input type="text" class="form-control" name="allowed_videos" value="<?php if(isset($_POST['allowed_videos'])) {echo $_POST['allowed_videos'];} ?>">
+                                    <input type="text" autocomplete='off' class="form-control" name="allowed_videos" value="<?php if(isset($_POST['allowed_videos'])) {echo $_POST['allowed_videos'];} ?>">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" name="form_submit" class="btn btn-primary">Submit</button>
