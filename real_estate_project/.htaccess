@@ -7,7 +7,7 @@ RewriteRule   ^customer-forget-password$            customer-forget-password.php
 RewriteRule   ^customer-dashboard$                  customer-dashboard.php                  [NC,L]
 RewriteRule   ^customer-logout$                     customer-logout.php                     [NC,L]
 RewriteRule   ^pricing$                             pricing.php                             [NC,L]
-RewriteRule   ^location$                            location.php                             [NC,L]
+RewriteRule   ^locations$                           locations.php                             [NC,L]
 
 RewriteRule   ^agent-registration$               agent-registration.php               [NC,L]
 RewriteRule   ^agent-login$                      agent-login.php                      [NC,L]
