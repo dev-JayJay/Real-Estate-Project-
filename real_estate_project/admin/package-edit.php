@@ -66,7 +66,7 @@ if(isset($_POST['form_submit'])) {
 ?>
 
 <?php
-$statement = $pdo->prepare("SELECT * FROM packages WHERE id=?");
+$statement = $pdo->prepare("SELECT * FROM pakages WHERE id=?");
 $statement->execute([$_REQUEST['id']]);
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -107,7 +107,7 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Allowed Photos *</label>
-                                    <input type="text" class="form-control" autocomplete="off" name="allowed_photos" value="<?php echo $result[0]['allowed_photos']; ?>">
+                                    <input type="text" class="form-control" autocomplete="off" name="allowed_photos" value="<?php echo $result[0]['allowed_photo']; ?>">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Allowed Videos *</label>
