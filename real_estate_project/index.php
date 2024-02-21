@@ -42,14 +42,16 @@
                                             <div class="form-group">
                                                 <select name="" class="form-select select2">
                                                     <option value="">Select Type</option>
-                                                    <option value="">Apartment</option>
-                                                    <option value="">Bungalow</option>
-                                                    <option value="">Cabin</option>
-                                                    <option value="">Condo</option>
-                                                    <option value="">Cottage</option>
-                                                    <option value="">Duplex</option>
-                                                    <option value="">Townhouse</option>
-                                                    <option value="">Villa</option>
+                                                    <?php
+                                                $statement = $pdo->prepare("SELECT * FROM types ORDER BY name ASC");
+                                                $statement->execute();
+                                                $result1 = $statement->fetchAll(PDO::FETCH_ASSOC);
+                                                foreach ($result1 as $row) {
+                                                    ?>
+                                                    <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                                                    <?php
+                                                }
+                                                ?>
                                                 </select>
                                             </div>
                                         </div>
