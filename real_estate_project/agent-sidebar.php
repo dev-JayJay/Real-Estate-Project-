@@ -18,8 +18,14 @@
         ">
             <a href="<?php echo BASE_URL; ?>agent-payment">Make Payment</a>
         </li>
-        <li class="list-group-item">
-            <a href="user-orders.html">Orders</a>
+        <li class="list-group-item"
+        <?php
+        if ($cur_page == 'agent-orders.php') {
+            echo 'active';
+        }
+        ?>
+        >
+            <a href="<?php echo BASE_URL; ?>agent-orders">Orders</a>
         </li>
         <li class="list-group-item">
             <a href="user-property-add.html">Add Property</a>

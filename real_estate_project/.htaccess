@@ -15,3 +15,4 @@ RewriteRule   ^agent-forget-password$            agent-forget-password.php      
 RewriteRule   ^agent-dashboard$                  agent-dashboard.php                  [NC,L]
 RewriteRule   ^agent-logout$                     agent-logout.php                     [NC,L]
 RewriteRule   ^agent-payment$                    agent-payment.php                    [NC,L]
+RewriteRule   ^agent-orders$                     agent-orders.php                     [NC,L]
