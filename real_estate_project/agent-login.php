@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
 
 <?php 
-if (isset($_SESSION['agents'])) {
+if (!isset($_SESSION['agents'])) {
     header('location:' .BASE_URL. 'agent-dashboard');
 }
 ?>
