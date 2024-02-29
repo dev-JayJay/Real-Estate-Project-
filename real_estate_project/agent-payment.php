@@ -1,6 +1,6 @@
 <?php include 'header.php'; ?>
 <?php
-if(!isset($_SESSION['agent'])) {
+if(!isset($_SESSION['agents'])) {
     header('location: '.BASE_URL.'agent-login');
     exit;
 }
@@ -131,7 +131,7 @@ if(isset($_POST['form_stripe'])) {
                                                 JOIN packages 
                                                 ON orders.package_id=packages.id 
                                                 WHERE agent_id=? AND currently_active=?");
-                    $statement->execute([$_SESSION['agent']['id'],1]);
+                    $statement->execute([$_SESSION['agents']['id'],1]);
                     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                     $total = $statement->rowCount();
                     ?>
