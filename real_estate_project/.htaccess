@@ -17,3 +17,4 @@ RewriteRule   ^agent-logout$                     agent-logout.php               
 RewriteRule   ^agent-payment$                    agent-payment.php                    [NC,L]
 RewriteRule   ^agent-orders$                     agent-orders.php                     [NC,L]
 RewriteRule   ^agent-property-add$               agent-property-add.php               [NC,L]
+RewriteRule   ^agent-properties$                 agent-properties.php                 [NC,L]
