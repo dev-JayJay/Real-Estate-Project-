@@ -36,8 +36,14 @@
         >
             <a href="<?php echo BASE_URL; ?>agent-property-add">Add Property</a>
         </li>
-        <li class="list-group-item">
-            <a href="user-properties.html">All Properties</a>
+        <li class="list-group-item"
+        <?php
+        if ($cur_page == 'agent-Properties.php') {
+            echo 'active';
+        }
+        ?>
+        >
+            <a href="<?php echo BASE_URL; ?>agent-Properties">All Properties</a>
         </li>
         <li class="list-group-item">
             <a href="user-wishlist.html">Wishlist</a>
