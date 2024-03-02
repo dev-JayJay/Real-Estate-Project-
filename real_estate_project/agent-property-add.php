@@ -9,11 +9,11 @@ if (!isset($_SESSION['agents'])) {
 $statement = $pdo->prepare("SELECT * FROM orders WHERE agent_id=?");
 $statement->execute(array($_SESSION['agents']['id']));
 $total = $statement->rowCount();
-// if(!$total) {
-//     $_SESSION['error_message'] = 'Please purchase a package first';
-//     header('location: '.BASE_URL.'agent-payment');
-//     exit;
-// }
+if(!$total) {
+    $_SESSION['error_message'] = 'Please purchase a package first'; 
+    header('location: '.BASE_URL.'agent-payment');
+    exit;
+}
 
 // If this agent already added his maximum number of allowed properties, he will be redirected to the properties view page and any of the added properties should be removed in order to add a new one.
 $statement = $pdo->prepare("SELECT * 
