@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
 
 <?php
-if(!isset($_SESSION['agent'])) {
+if(!isset($_SESSION['agents'])) {
     header('location: '.BASE_URL.'agent-login');
     exit;
 }
@@ -21,7 +21,7 @@ if(isset($_POST['form_submit'])) {
                             JOIN packages
                             ON orders.package_id = packages.id
                             WHERE orders.agent_id=? AND orders.currently_active=?");
-        $statement->execute(array($_SESSION['agent']['id'],1));
+        $statement->execute(array($_SESSION['agents']['id'],1));
         $result1 = $statement->fetchAll(PDO::FETCH_ASSOC);
         foreach ($result1 as $row) {
             $allowed_photos = $row['allowed_photos'];
@@ -126,7 +126,7 @@ if(isset($_POST['form_delete'])) {
                 <div class="photo-all">
                     <div class="row">
                         <?php
-                        $statement = $pdo->prepare("SELECT * FROM property_photos WHERE property_id=?");
+                        $statement = $pdo->prepare("SELECT * FROM properties_photos WHERE property_id=?");
                         $statement->execute([$_REQUEST['id']]);
                         $result1 = $statement->fetchAll(PDO::FETCH_ASSOC);
                         $total = $statement->rowCount();
