@@ -9,28 +9,28 @@ if (!isset($_SESSION['agents'])) {
 $statement = $pdo->prepare("SELECT * FROM orders WHERE agent_id=?");
 $statement->execute(array($_SESSION['agents']['id']));
 $total = $statement->rowCount();
-// if(!$total) {
-//     $_SESSION['error_message'] = 'Please purchase a package first';
-//     header('location: '.BASE_URL.'agent-payment');
-//     exit;
-// }
-
-// If this agent already added his maximum number of allowed properties, he will be redirected to the properties view page and any of the added properties should be removed in order to add a new one.
-$statement = $pdo->prepare("SELECT * 
-                            FROM orders 
-                            JOIN packages
-                            ON orders.package_id = packages.id
-                            WHERE orders.agent_id=? AND orders.currently_active=?");
-$statement->execute(array($_SESSION['agents']['id'],1));
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-foreach ($result as $row) {
-    $allowed_properties = $row['allowed_properties'];
-    $expire_date = $row['expire_date'];
+if(!$total) {
+    $_SESSION['error_message'] = 'Please purchase a package first'; 
+    header('location: '.BASE_URL.'agent-payment');
+    exit;
 }
 
-$statement = $pdo->prepare("SELECT * FROM properties WHERE agent_id=?");
-$statement->execute(array($_SESSION['agents']['id']));
-$total_properties = $statement->rowCount();
+// If this agent already added his maximum number of allowed properties, he will be redirected to the properties view page and any of the added properties should be removed in order to add a new one.
+// $statement = $pdo->prepare("SELECT * 
+//                             FROM orders 
+//                             JOIN packages
+//                             ON orders.package_id = packages.id
+//                             WHERE orders.agent_id=? AND orders.currently_active=?");
+// $statement->execute(array($_SESSION['agents']['id'],1));
+// $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+// foreach ($result as $row) {
+//     $allowed_properties = $row['allowed_properties'];
+//     $expire_date = $row['expire_date'];
+// }
+
+// $statement = $pdo->prepare("SELECT * FROM properties WHERE agent_id=?");
+// $statement->execute(array($_SESSION['agents']['id']));
+// $total_properties = $statement->rowCount();
 // if($total_properties == $allowed_properties) {
 //     $_SESSION['error_message'] = 'You have already added your maximum number of allowed properties. Please remove any of the added properties in order to add a new one.';
 //     header('location: '.BASE_URL.'agent-properties');
@@ -49,6 +49,8 @@ $total_properties = $statement->rowCount();
 <?php
 if(isset($_POST['form_submit'])) {
     try {
+        var_dump($_POST);
+        var_dump($_FILES['featured_photo']);
         if($_POST['name'] == '') {
             throw new Exception('Name can not be empty');
         }
@@ -92,28 +94,28 @@ if(isset($_POST['form_submit'])) {
             throw new Exception('Map can not be empty');
         }
 
-        if($_POST['is_featured'] == 'Yes') {
-            $statement = $pdo->prepare("SELECT * 
-                                        FROM orders o
-                                        JOIN packages p
-                                        ON o.package_id=p.id
-                                        WHERE o.agent_id=? AND o.currently_active=?");
-            $statement->execute([$_SESSION['agent']['id'],1]);
-            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-            foreach($result as $row) {
-                $allowed_featured_properties = $row['allowed_featured_properties'];
-            }
-            if($allowed_featured_properties == 0) {
-                throw new Exception('You have no featured property left. Please upgrade your package.');
-            }
+        // if($_POST['is_featured'] == 'Yes') {
+        //     $statement = $pdo->prepare("SELECT * 
+        //                                 FROM orders o
+        //                                 JOIN packages p
+        //                                 ON o.package_id=p.id
+        //                                 WHERE o.agent_id=? AND o.currently_active=?");
+        //     $statement->execute([$_SESSION['agent']['id'],1]);
+        //     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        //     foreach($result as $row) {
+        //         $allowed_featured_properties = $row['allowed_featured_properties'];
+        //     }
+        //     if($allowed_featured_properties == 0) {
+        //         throw new Exception('You have no featured property left. Please upgrade your package.');
+        //     }
 
-            $statement = $pdo->prepare("SELECT * FROM properties WHERE agent_id=? AND is_featured=?");
-            $statement->execute([$_SESSION['agent']['id'],'Yes']);
-            $total_featured_added = $statement->rowCount();
-            if($total_featured_added == $allowed_featured_properties) {
-                throw new Exception('You have no featured property left. Please upgrade your package.');
-            }
-        }
+        //     $statement = $pdo->prepare("SELECT * FROM properties WHERE agent_id=? AND is_featured=?");
+        //     $statement->execute([$_SESSION['agent']['id'],'Yes']);
+        //     $total_featured_added = $statement->rowCount();
+        //     if($total_featured_added == $allowed_featured_properties) {
+        //         throw new Exception('You have no featured property left. Please upgrade your package.');
+        //     }
+        // }
 
         if(!isset($_POST['amenities'])) {
             throw new Exception('Please select at least one amenity');
@@ -167,10 +169,8 @@ if(isset($_POST['form_submit'])) {
                                 address,
                                 built_year,
                                 map,
-                                is_featured,
-                                status,
-                                posted_on
-                                ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                                status
+                                ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         $statement->execute([
                             $_SESSION['agents']['id'],
                             $_POST['location_id'],
@@ -191,12 +191,10 @@ if(isset($_POST['form_submit'])) {
                             $_POST['address'],
                             $_POST['built_year'],
                             $_POST['map'],
-                            $_POST['is_featured'],
-                            'Active',
-                            date('Y-m-d')
+                            'Active'
                         ]); 
 
-        $success_massage = 'Property is added successfully.';
+        $success_message = 'Property is added successfully.';
         $_SESSION['success_message'] = $success_message;
         header('location: '.BASE_URL.'agent-property-add');
         exit;
@@ -315,13 +313,13 @@ if(isset($_POST['form_submit'])) {
                             <label for="" class="form-label">Location Map *</label>
                             <textarea name="map" class="form-control h-150" cols="30" rows="10"><?php if(isset($_POST['map'])) {echo $_POST['map'];} ?></textarea>
                         </div>
-                        <div class="col-md-4 mb-3">
+                        <!-- <div class="col-md-4 mb-3">
                             <label for="" class="form-label">Is Featured? *</label>
                             <select name="is_featured" class="form-control select2">
                                 <option value="No" <?php if(isset($_POST['is_featured'])){if($_POST['is_featured'] == 'No') {echo 'selected';}} ?>>No</option>
                                 <option value="Yes" <?php if(isset($_POST['is_featured'])){if($_POST['is_featured'] == 'Yes') {echo 'selected';}} ?>>Yes</option>
                             </select>
-                        </div>
+                        </div> -->
                         <div class="col-md-12 mb-3">
                             <label for="" class="form-label">Amenities *</label>
                             <div class="row">

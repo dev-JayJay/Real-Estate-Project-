@@ -1,12 +1,12 @@
 <?php include 'header.php'; ?>
 
 <?php
-if(!isset($_SESSION['agent'])) {
+if(!isset($_SESSION['agents'])) {
     header('location: '.BASE_URL.'agent-login');
     exit;
 }
 $statement = $pdo->prepare("SELECT * FROM properties WHERE id=? AND agent_id=?");
-$statement->execute([$_REQUEST['id'],$_SESSION['agent']['id']]);
+$statement->execute([$_REQUEST['id'],$_SESSION['agents']['id']]);
 $total = $statement->rowCount();
 if(!$total) {
     header('location: '.BASE_URL.'agent-login');
