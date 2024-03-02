@@ -23,14 +23,14 @@ unlink('uploads/'.$result[0]['featured_photo']);
 $statement = $pdo->prepare("DELETE FROM properties WHERE id=?");
 $statement->execute([$_REQUEST['id']]);
 
-$statement = $pdo->prepare("SELECT * FROM property_photos WHERE property_id=?");
+$statement = $pdo->prepare("SELECT * FROM properties_photos WHERE property_id=?");
 $statement->execute([$_REQUEST['id']]);
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 foreach ($result as $row) {
     unlink('uploads/'.$row['photo']);
 }
 
-$statement = $pdo->prepare("DELETE FROM property_photos WHERE property_id=?");
+$statement = $pdo->prepare("DELETE FROM properties_photos WHERE property_id=?");
 $statement->execute([$_REQUEST['id']]);
 
 $statement = $pdo->prepare("DELETE FROM property_videos WHERE property_id=?");
