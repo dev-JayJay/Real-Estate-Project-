@@ -6,9 +6,9 @@ if(!isset($_SESSION['agents'])) {
 }
 
 // If this agent did not purchase any package, he will be redirected to payment page
-$statement = $pdo->prepare("SELECT * FROM orders WHERE agent_id=?");
-$statement->execute(array($_SESSION['agents']['id']));
-$total = $statement->rowCount();
+// $statement = $pdo->prepare("SELECT * FROM orders WHERE agent_id=?");
+// $statement->execute(array($_SESSION['agents']['id']));
+// $total = $statement->rowCount();
 // if(!$total) {
 //     $_SESSION['error_message'] = 'Please purchase a package first';
 //     header('location: '.BASE_URL.'agent-payment');
@@ -65,7 +65,7 @@ $total = $statement->rowCount();
                                                 ORDER BY properties.id DESC");
                             $statement->execute([$_SESSION['agents']['id']]);
                             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-                            //$total = $statement->rowCount();
+                            // $total = $statement->rowCount(); 
                             foreach ($result as $row) {
                                 $i++;
                                 ?>
@@ -142,16 +142,16 @@ $total = $statement->rowCount();
                                                                 foreach ($amenities as $amenity) {
                                                                     echo '- '.$amenity.'<br>';
                                                                 }
-                                                                // $amenities = $row['amenities'];
-                                                                // $amenities = explode(',', $amenities);
-                                                                // foreach ($amenities as $amenity) {
-                                                                //     $statement = $pdo->prepare("SELECT * FROM amenities WHERE id=?");
-                                                                //     $statement->execute([$amenity]);
-                                                                //     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-                                                                //     foreach ($result as $row1) {
-                                                                //         echo $row1['name'] . ', ';
-                                                                //     }
-                                                                // }
+                                                                $amenities = $row['amenities'];
+                                                                $amenities = explode(',', $amenities);
+                                                                foreach ($amenities as $amenity) {
+                                                                    $statement = $pdo->prepare("SELECT * FROM amenities WHERE id=?");
+                                                                    $statement->execute([$amenity]);
+                                                                    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                                                                    foreach ($result as $row1) {
+                                                                        echo $row1['name'] . ', ';
+                                                                    }
+                                                                }
                                                                 ?>
                                                             </div>
                                                         </div>
