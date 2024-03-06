@@ -10,6 +10,14 @@ if (isset($_POST['form_update'])) {
         if ($_POST['email'] == '') {
             throw new Exception("email cannot be empty");           
         }
+
+        // check if email already exits
+        $statement = $pdo->prepare("SELECT * FROM agents WHERE email=? AND id=?");
+        $statement->execute([$_POST['email'],$_SESSION['agents']['id']]);
+        $total = $statement->rowCount();
+        if($total) {
+            throw new Exception("Sorry These email already exist");
+        }
         $statement = $pdo->prepare("UPDATE agents SET 
                                     full_name=?,
                                     email=?,
