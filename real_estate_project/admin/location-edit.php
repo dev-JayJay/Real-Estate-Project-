@@ -13,6 +13,14 @@ if(isset($_POST['form_submit'])) {
         if($_POST['name'] == "") {
             throw new Exception("Name can not be empty.");
         }
+         // check if location already exits
+         $statement = $pdo->prepare("SELECT * FROM locations WHERE name=? AND id=?");
+         $statement->execute([$_POST['name'], $_REQUEST['id']]);
+         $total = $statement->rowCount();
+         if($total) {
+             throw new Exception("Sorry These name already exist");
+         }
+
         $statement = $pdo->prepare("SELECT * FROM locations WHERE name=? AND id!=?");
         $statement->execute([$_POST['name'], $_REQUEST['id']]);
         $total = $statement->rowCount();
@@ -25,6 +33,7 @@ if(isset($_POST['form_submit'])) {
         if(!preg_match('/^[a-z0-9-]+$/', $_POST['slug'])) {
             throw new Exception("Invalid slug format. Slug should only contain lowercase letters, numbers, and hyphens.");
         }
+
         $statement = $pdo->prepare("SELECT * FROM locations WHERE slug=? AND id!=?");
         $statement->execute([$_POST['slug'], $_REQUEST['id']]);
         $total = $statement->rowCount();

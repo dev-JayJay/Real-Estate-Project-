@@ -14,6 +14,13 @@ if(isset($_POST['form_submit'])) {
             throw new Exception("Name can not be empty.");
         }
 
+        $statement = $pdo->prepare("SELECT * FROM amenities WHERE name=? AND id!=?");
+        $statement->execute([$_POST['name'], $_REQUEST['id']]);
+        $total = $statement->rowCount();
+        if($total) {
+            throw new Exception("Slug already exists");
+        }
+
         $statement = $pdo->prepare("UPDATE amenities 
                                     SET 
                                     name=?,
