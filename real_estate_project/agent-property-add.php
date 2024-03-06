@@ -9,7 +9,7 @@ if (!isset($_SESSION['agents'])) {
 $statement = $pdo->prepare("SELECT * FROM orders WHERE agent_id=?");
 $statement->execute(array($_SESSION['agents']['id']));
 $total = $statement->rowCount();
-if(!$total) {
+if($total) {
     $_SESSION['error_message'] = 'Please purchase a package first'; 
     header('location: '.BASE_URL.'agent-payment');
     exit;
@@ -169,8 +169,9 @@ if(isset($_POST['form_submit'])) {
                                 address,
                                 built_year,
                                 map,
+                                is_featured,
                                 status
-                                ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                                ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         $statement->execute([
                             $_SESSION['agents']['id'],
                             $_POST['location_id'],
@@ -191,6 +192,7 @@ if(isset($_POST['form_submit'])) {
                             $_POST['address'],
                             $_POST['built_year'],
                             $_POST['map'],
+                            $_POST['is_featured'],
                             'Active'
                         ]); 
 
@@ -313,13 +315,13 @@ if(isset($_POST['form_submit'])) {
                             <label for="" class="form-label">Location Map *</label>
                             <textarea name="map" class="form-control h-150" cols="30" rows="10"><?php if(isset($_POST['map'])) {echo $_POST['map'];} ?></textarea>
                         </div>
-                        <!-- <div class="col-md-4 mb-3">
+                        <div class="col-md-4 mb-3">
                             <label for="" class="form-label">Is Featured? *</label>
                             <select name="is_featured" class="form-control select2">
                                 <option value="No" <?php if(isset($_POST['is_featured'])){if($_POST['is_featured'] == 'No') {echo 'selected';}} ?>>No</option>
                                 <option value="Yes" <?php if(isset($_POST['is_featured'])){if($_POST['is_featured'] == 'Yes') {echo 'selected';}} ?>>Yes</option>
                             </select>
-                        </div> -->
+                        </div>
                         <div class="col-md-12 mb-3">
                             <label for="" class="form-label">Amenities *</label>
                             <div class="row">

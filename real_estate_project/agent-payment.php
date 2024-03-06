@@ -22,7 +22,7 @@ if(isset($_POST['form_paypal'])) {
         }
 
         $statement = $pdo->prepare("SELECT * FROM orders WHERE agent_id=?");
-        $statement->execute([$_SESSION['agent']['id']]);
+        $statement->execute([$_SESSION['agents']['id']]);
         $total_properties = $statement->rowCount();
     
         if($allowed_properties != -1) {

@@ -66,7 +66,7 @@ if(isset($_POST['form_submit'])) {
                                         JOIN packages p
                                         ON o.package_id=p.id
                                         WHERE o.agent_id=? AND o.currently_active=?");
-            $statement->execute([$_SESSION['agent']['id'],1]);
+            $statement->execute([$_SESSION['agents']['id'],1]);
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             foreach($result as $row) {
                 $allowed_featured_properties = $row['allowed_featured_properties'];
@@ -76,7 +76,7 @@ if(isset($_POST['form_submit'])) {
             }
 
             $statement = $pdo->prepare("SELECT * FROM properties WHERE agent_id=? AND is_featured=?");
-            $statement->execute([$_SESSION['agent']['id'],'Yes']);
+            $statement->execute([$_SESSION['agents']['id'],'Yes']);
             $total_featured_added = $statement->rowCount();
             if($total_featured_added == $allowed_featured_properties) {
                 throw new Exception('You have no featured property left. Please upgrade your package.');
