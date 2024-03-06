@@ -24,6 +24,14 @@ if (isset($_POST['form_submit'])) {
         if ($_POST['password'] !== $_POST['retype_password'] ) {
             throw new Exception("Password does not match enter same password");           
         }
+        
+        // check if email already exits
+        $statement = $pdo->prepare("SELECT * FROM customers WHERE email=?");
+        $statement->execute([$_POST['email']]);
+        $total = $statement->rowCount();
+        if($total) {
+            throw new Exception("Sorry These email already exist");
+        }
 
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $token = time();

@@ -25,6 +25,14 @@ if (isset($_POST['form_update'])) {
             $statement->execute([$password,$_SESSION['customers']['id']]);
         }
 
+        // check if email already exits
+        $statement = $pdo->prepare("SELECT * FROM customers WHERE email=? AND id=?");
+        $statement->execute([$_POST['email'],$_SESSION['customers']['id']]);
+        $total = $statement->rowCount();
+        if($total) {
+            throw new Exception("Sorry These email already exist");
+        }
+
         // Update Photo
         $path = $_FILES['photo']['name'];
         $path_tmp = $_FILES['photo']['tmp_name'];
