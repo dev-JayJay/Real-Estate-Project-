@@ -18,6 +18,7 @@ if (isset($_POST['form_update'])) {
         if($total) {
             throw new Exception("Sorry These email already exist");
         }
+        
         $statement = $pdo->prepare("UPDATE agents SET 
                                     full_name=?,
                                     email=?,
