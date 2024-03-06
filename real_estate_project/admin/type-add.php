@@ -13,6 +13,15 @@ if(isset($_POST['form_submit'])) {
         if($_POST['name'] == "") {
             throw new Exception("Name can not be empty.");
         }
+         // check if location already exits
+         $statement = $pdo->prepare("SELECT * FROM types WHERE name=?");
+         $statement->execute([$_POST['name']]);
+         $total = $statement->rowCount();
+         if($total) {
+             throw new Exception("Sorry These name already exist");
+         }
+        //  end
+
         $statement = $pdo->prepare("SELECT * FROM types WHERE name=?");
         $statement->execute([$_POST['name']]);
         $total = $statement->rowCount();

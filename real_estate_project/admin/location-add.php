@@ -13,6 +13,14 @@ if(isset($_POST['form_submit'])) {
         if($_POST['name'] == "") {
             throw new Exception("Name can not be empty.");
         }
+         // check if location already exits
+         $statement = $pdo->prepare("SELECT * FROM locations WHERE name=?");
+         $statement->execute([$_POST['name']]);
+         $total = $statement->rowCount();
+         if($total) {
+             throw new Exception("Sorry These name already exist");
+         }
+
         $statement = $pdo->prepare("SELECT * FROM locations WHERE name=?");
         $statement->execute([$_POST['name']]);
         $total = $statement->rowCount();
@@ -30,6 +38,13 @@ if(isset($_POST['form_submit'])) {
         $total = $statement->rowCount();
         if($total) {
             throw new Exception("Slug already exists");
+        }
+        // check if slug already exits
+        $statement = $pdo->prepare("SELECT * FROM locations WHERE slug=?");
+        $statement->execute([$_POST['slug']]);
+        $total = $statement->rowCount();
+        if($total) {
+            throw new Exception("Sorry These slug already exist");
         }
 
         $path = $_FILES['photo']['name'];
