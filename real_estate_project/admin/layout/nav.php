@@ -7,7 +7,7 @@
             </form>
             <ul class="navbar-nav navbar-right justify-content-end rightsidetop">
                 <li class="nav-link">
-                    <a href="" target="_blank" class="btn btn-warning">Front End</a>
+                    <a href="<?php echo BASE_URL; ?>" target="_blank" class="btn btn-warning">Front End</a>
                 </li>
                 <li class="nav-link">
                     Logged in as: <?php echo $_SESSION['admin']['full_name']; ?>
