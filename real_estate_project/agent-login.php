@@ -1,13 +1,6 @@
 <?php include 'header.php'; ?>
 
 <?php 
-if (!isset($_SESSION['agents'])) {
-    header('location:'.BASE_URL.'agent-login');
-    exit;
-}
-?>
-
-<?php 
 if (isset($_POST['form_submit'])) {
     try {
         if ($_POST['email'] == '') {

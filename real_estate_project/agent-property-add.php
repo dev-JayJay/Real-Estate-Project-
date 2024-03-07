@@ -29,22 +29,22 @@ foreach ($result as $row) {
     $expire_date = $row['expire_date'];
 }
 
-// $statement = $pdo->prepare("SELECT * FROM properties WHERE agent_id=?");
-// $statement->execute(array($_SESSION['agents']['id']));
-// $total_properties = $statement->rowCount();
-// if($total_properties == $allowed_properties) {
-//     $_SESSION['error_message'] = 'You have already added your maximum number of allowed properties. Please remove any of the added properties in order to add a new one.';
-//     header('location: '.BASE_URL.'agent-properties');
-//     exit;
-// }
+$statement = $pdo->prepare("SELECT * FROM properties WHERE agent_id=?");
+$statement->execute(array($_SESSION['agents']['id']));
+$total_properties = $statement->rowCount();
+if($total_properties == $allowed_properties) {
+    $_SESSION['error_message'] = 'You have already added your maximum number of allowed properties. Please remove any of the added properties in order to add a new one.';
+    header('location: '.BASE_URL.'agent-properties');
+    exit;
+}
 
 
 // If the expire date is passed, the agent will be redirected to the payment page
-// if(strtotime(date('Y-m-d')) > strtotime($expire_date)) {
-//     $_SESSION['error_message'] = 'Your package is expired. Please purchase a new package.';
-//     header('location: '.BASE_URL.'agent-payment');
-//     exit;
-// }
+if(strtotime(date('Y-m-d')) > strtotime($expire_date)) {
+    $_SESSION['error_message'] = 'Your package is expired. Please purchase a new package.';
+    header('location: '.BASE_URL.'agent-payment');
+    exit;
+}
 ?>
 
 <?php
