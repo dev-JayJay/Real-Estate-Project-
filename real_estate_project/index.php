@@ -1,45 +1,28 @@
 <?php include 'header.php'; ?>
 
-<?php
-$allowed_agents = [];
-$q = $pdo->prepare("SELECT agent_id FROM orders WHERE expire_date >= CURDATE() AND currently_active=?");
-$q->execute([1]);
-$result = $q->fetchAll();
-foreach($result as $row) {
-    $allowed_agents[] = $row['agent_id'];
-}
-$agent_list = implode(',',$allowed_agents);
-?>
-
-<?php
-// $statement = $pdo->prepare("SELECT * FROM settings WHERE id=?");
-// $statement->execute([1]);
-// $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-?>
-
-<div class="slider" style="background-image: url(<?php echo BASE_URL; ?>uploads/<?php echo $result[0]['hero_photo']; ?>)">
-    <div class="bg"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="item">
-                    <div class="text">
-                        <!-- <h2><?php echo $result[0]['hero_heading']; ?></h2>
-                        <p>
-                        <?php echo $result[0]['hero_subheading']; ?>
-                        </p> -->
-                    </div>
-                    <div class="search-section">
-                        <form action="<?php echo BASE_URL; ?>properties.php" method="get">
-                            <div class="inner">
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <input type="text" name="name" class="form-control" placeholder="Property Name">
+<div class="slider" style="background-image: url(<?php echo BASE_URL; ?>uploads/banner-home.jpg)">
+        <div class="bg"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="item">
+                        <div class="text">
+                            <h2>Discover Your New Home</h2>
+                            <p>
+                                You can get your desired awesome properties, homes, condos etc. here by name, category or location.
+                            </p>
+                        </div>
+                        <div class="search-section">
+                            <form action="" method="post">
+                                <div class="inner">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <input type="text" name="" class="form-control" placeholder="Find Anything ...">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
                                             <select name="location_id" class="form-select select2">
                                                 <option value="">All Locations</option>
                                                 <?php
@@ -53,13 +36,13 @@ $agent_list = implode(',',$allowed_agents);
                                                 }
                                                 ?>
                                             </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <select name="type_id" class="form-select select2">
-                                                <option value="">All Types</option>
-                                                <?php
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <select name="" class="form-select select2">
+                                                    <option value="">Select Type</option>
+                                                    <?php
                                                 $statement = $pdo->prepare("SELECT * FROM types ORDER BY name ASC");
                                                 $statement->execute();
                                                 $result1 = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -69,30 +52,24 @@ $agent_list = implode(',',$allowed_agents);
                                                     <?php
                                                 }
                                                 ?>
-                                            </select>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="fas fa-search"></i>
+                                                Search
+                                            </button>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
-                                        <input type="hidden" name="amenity_id" value="">
-                                        <input type="hidden" name="purpose" value="">
-                                        <input type="hidden" name="bedrooms" value="">
-                                        <input type="hidden" name="bathrooms" value="">
-                                        <input type="hidden" name="price" value="">
-                                        <input type="hidden" name="p" value="1">
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fas fa-search"></i>
-                                            Search
-                                        </button>
-                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 <!-- <?php if($result[0]['featured_property_status'] == 'Show'): ?> -->
@@ -100,10 +77,10 @@ $agent_list = implode(',',$allowed_agents);
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="heading">
+                <!-- <div class="heading">
                     <h2><?php echo $result[0]['featured_property_heading']; ?></h2>
                     <p><?php echo $result[0]['featured_property_subheading']; ?></p>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="row">
@@ -191,238 +168,350 @@ $agent_list = implode(',',$allowed_agents);
         </div>
     </div>
 </div>
-<?php endif; ?>
+<!-- <?php endif; ?> -->
 
 
-
-<!-- <?php if($result[0]['why_choose_status'] == 'Show'): ?> -->
-<div class="why-choose" style="background-image: url('<?php echo BASE_URL; ?>uploads/<?php echo $result[0]['why_choose_photo']; ?>')">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="heading">
-                    <h2><?php echo $result[0]['why_choose_heading']; ?></h2>
-                    <p>
-                    <?php echo $result[0]['why_choose_subheading']; ?>
-                    </p>
+    <div class="why-choose" style="background-image: url(uploads/why-choose.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading">
+                        <h2>Why Choose Us</h2>
+                        <p>
+                            Describing why we are best in the property business
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <?php
-            $statement = $pdo->prepare("SELECT * FROM why_choose_items ORDER BY id ASC");
-            $statement->execute();
-            $result1 = $statement->fetchAll(PDO::FETCH_ASSOC);
-            foreach($result1 as $row) {
-                ?>
+            <div class="row">
                 <div class="col-md-4">
                     <div class="inner">
                         <div class="icon">
-                            <i class="<?php echo $row['icon']; ?>"></i>
+                            <i class="fas fa-briefcase"></i>
                         </div>
                         <div class="text">
-                            <h2><?php echo $row['heading']; ?></h2>
-                            <p><?php echo $row['text']; ?></p>
+                            <h2>Years of Experience</h2>
+                            <p>
+                                With decades of combined experience in the industry, our agents have the expertise and knowledge to provide you with a seamless home-buying experience.
+                            </p>
                         </div>
                     </div>
                 </div>
-                <?php
-            }
-            ?>
-        </div>
-    </div>
-</div>
-<?php endif; ?>
-
-
-<!-- <?php if($result[0]['agent_status'] == 'Show'): ?> -->
-<div class="agent">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="heading">
-                    <h2><?php echo $result[0]['agent_heading']; ?></h2>
-                    <p>
-                        <?php echo $result[0]['agent_subheading']; ?>
-                    </p>
+                <div class="col-md-4">
+                    <div class="inner">
+                        <div class="icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="text">
+                            <h2>Competitive Prices</h2>
+                            <p>
+                                We understand that buying a home is a significant investment, which is why we strive to offer competitive prices to our clients.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="inner">
+                        <div class="icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="text">
+                            <h2>Responsive Communication</h2>
+                            <p>
+                                Our responsive agents are here to answer your questions and address your concerns, ensuring a smooth and stress-free home-buying experience.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+    </div>
 
-            <?php
-            $statement = $pdo->prepare("SELECT *
-                                        FROM agents 
-                                        WHERE status=? AND id IN ($agent_list) LIMIT 8");
-            $statement->execute([1]);
-            $result1 = $statement->fetchAll(PDO::FETCH_ASSOC);            
-            foreach ($result1 as $row) {
-                ?>
+
+    <div class="agent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading">
+                        <h2>Agents</h2>
+                        <p>
+                            Meet our expert property agents from the following list
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="item">
                         <div class="photo">
-                            <a href="<?php echo BASE_URL; ?>agent/<?php echo $row['id']; ?>">
-                                <?php if($row['photo'] == ''): ?>
-                                    <img src="<?php echo BASE_URL; ?>uploads/default.png" alt="">
-                                <?php else: ?>
-                                <img src="<?php echo BASE_URL; ?>uploads/<?php echo $row['photo']; ?>" alt="">
-                                <?php endif; ?>
-                            </a>
+                            <a href=""><img src="uploads/agent1.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <h2>
-                                <a href="<?php echo BASE_URL; ?>agent/<?php echo $row['id']; ?>"><?php echo $row['full_name']; ?></a>
+                                <a href="agent.html">Michael Wyatt</a>
                             </h2>
                         </div>
                     </div>
                 </div>
-                <?php
-            }
-            ?>
-        </div>
-    </div>
-</div>
-<?php endif; ?>
-
-
-<!-- <?php if($result[0]['location_status'] == 'Show'): ?> -->
-<div class="location pb_40">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="heading">
-                    <h2><?php echo $result[0]['location_heading']; ?></h2>
-                    <p>
-                        <?php echo $result[0]['location_subheading']; ?>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <?php
-            $statement = $pdo->prepare("SELECT l.id,l.name as location_name, l.photo as location_photo, l.slug as location_slug, COUNT(*) as location_count
-                        FROM properties p
-                        JOIN locations l
-                        ON p.location_id = l.id
-                        WHERE p.agent_id IN ($agent_list)
-                        GROUP BY l.id,l.name, l.photo, l.slug
-                        ORDER BY location_count DESC");
-            $statement->execute();
-            $result1 = $statement->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($result1 as $row) {
-                ?>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-3">
                     <div class="item">
                         <div class="photo">
-                            <a href="<?php echo BASE_URL; ?>location/<?php echo $row['location_slug']; ?>"><img src="<?php echo BASE_URL; ?>uploads/<?php echo $row['location_photo']; ?>" alt=""></a>
+                            <a href=""><img src="uploads/agent2.jpg" alt=""></a>
                         </div>
                         <div class="text">
-                            <h2><a href="<?php echo BASE_URL; ?>location/<?php echo $row['location_slug']; ?>"><?php echo $row['location_name']; ?></a></h2>
-                            <h4>(<?php echo $row['location_count']; ?> Properties)</h4>
+                            <h2>
+                                <a href="agent.html">Jason Schwartz</a>
+                            </h2>
                         </div>
                     </div>
                 </div>
-                <?php
-            }
-            ?>
-        </div>
-    </div>
-</div>
-<?php endif; ?>
-
-
-
-<!-- <?php if($result[0]['testimonial_status'] == 'Show'): ?> -->
-<div class="testimonial" style="background-image: url('<?php echo BASE_URL; ?>uploads/<?php echo $result[0]['testimonial_photo']; ?>')">
-    <div class="bg"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="main-header"><?php echo $result[0]['testimonial_heading']; ?></h2>
+                <div class="col-lg-3 col-md-3">
+                    <div class="item">
+                        <div class="photo">
+                            <a href=""><img src="uploads/agent3.jpg" alt=""></a>
+                        </div>
+                        <div class="text">
+                            <h2>
+                                <a href="agent.html">Joshua Lash</a>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="item">
+                        <div class="photo">
+                            <a href=""><img src="uploads/agent4.jpg" alt=""></a>
+                        </div>
+                        <div class="text">
+                            <h2>
+                                <a href="agent.html">Eric Williams</a>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="item">
+                        <div class="photo">
+                            <a href=""><img src="uploads/agent5.jpg" alt=""></a>
+                        </div>
+                        <div class="text">
+                            <h2>
+                                <a href="agent.html">Jay Smith</a>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="item">
+                        <div class="photo">
+                            <a href=""><img src="uploads/agent6.jpg" alt=""></a>
+                        </div>
+                        <div class="text">
+                            <h2>
+                                <a href="agent.html">Joseph Commons</a>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="item">
+                        <div class="photo">
+                            <a href=""><img src="uploads/agent7.jpg" alt=""></a>
+                        </div>
+                        <div class="text">
+                            <h2>
+                                <a href="agent.html">Richard Renner</a>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="item">
+                        <div class="photo">
+                            <a href=""><img src="uploads/agent8.jpg" alt=""></a>
+                        </div>
+                        <div class="text">
+                            <h2>
+                                <a href="agent.html">Ryan Dingle</a>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="testimonial-carousel owl-carousel">
+    </div>
+
+
+
+    <div class="location pb_40">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading">
+                        <h2>Locations</h2>
+                        <p>
+                            Check out all the properties of important locations
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <option value="">All Locations</option>
                     <?php
-                    $statement = $pdo->prepare("SELECT * FROM testimonials ORDER BY id ASC");
+                    $statement = $pdo->prepare("SELECT * FROM locations ORDER BY name ASC");
                     $statement->execute();
                     $result1 = $statement->fetchAll(PDO::FETCH_ASSOC);
-                    foreach($result1 as $row) {
+                    foreach ($result1 as $row) {
                         ?>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="item">
                             <div class="photo">
-                                <img src="<?php echo BASE_URL; ?>uploads/<?php echo $row['photo']; ?>" alt="" />
+                                <a href="location.html"><img src="<?php echo BASE_URL; ?>uploads/<?php echo $row['photo']; ?>" alt=""></a>
                             </div>
-                            <div class="text">
-                                <h4><?php echo $row['name']; ?></h4>
-                                <p><?php echo $row['designation']; ?></p>
-                            </div>
-                            <div class="description">
-                                <p>
-                                    <?php echo $row['comment']; ?>
-                                </p>
-                            </div>
+                        <div class="text">
+                            <h2><a href="location.html">Boston</a></h2>
+                            <h4>(10 Properties)</h4>
                         </div>
+                    </div>
+                </div>
                         <?php
                     }
                     ?>
-                </div>
             </div>
         </div>
     </div>
-</div>
-<?php endif; ?>
 
 
-<!-- <?php if($result[0]['post_status'] == 'Show'): ?> -->
-<div class="blog">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="heading">
-                    <h2><?php echo $result[0]['post_heading']; ?></h2>
-                    <p>
-                        <?php echo $result[0]['post_subheading']; ?>
-                    </p>
+
+    <div class="testimonial" style="background-image: url(uploads/testimonial-bg.jpg)">
+        <div class="bg"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="main-header">Our Happy Clients</h2>
                 </div>
             </div>
-        </div>
-        <div class="row">
-
-            <?php
-                $statement = $pdo->prepare("SELECT * FROM posts ORDER BY id DESC LIMIT 3");
-                $statement->execute();
-                $result1 = $statement->fetchAll(PDO::FETCH_ASSOC);
-                foreach($result1 as $row) {
-                    ?>
-                    <div class="col-lg-4 col-md-6">
+            <div class="row">
+                <div class="col-12">
+                    <div class="testimonial-carousel owl-carousel">
                         <div class="item">
                             <div class="photo">
-                                <img src="<?php echo BASE_URL; ?>uploads/<?php echo $row['photo']; ?>" alt="">
+                                <img src="uploads/t1.jpg" alt="" />
                             </div>
                             <div class="text">
-                                <h2>
-                                    <a href="<?php echo BASE_URL; ?>post/<?php echo $row['slug']; ?>"><?php echo $row['title']; ?></a>
-                                </h2>
-                                <div class="short-des">
-                                    <p>
-                                        <?php echo $row['short_description']; ?>
-                                    </p>
-                                </div>
-                                <div class="button">
-                                    <a href="<?php echo BASE_URL; ?>post/<?php echo $row['slug']; ?>" class="btn btn-primary">Read More</a>
-                                </div>
+                                <h4>Robert Krol</h4>
+                                <p>CEO, ABC Company</p>
+                            </div>
+                            <div class="description">
+                                <p>
+                                    I recently worked with Patrick Johnson on purchasing my dream home and I couldn't have asked for a better experience. Patrick Johnson was knowledgeable, professional, and truly cared about finding me the perfect property. They were always available to answer my questions and made the entire process stress-free. I highly recommend Patrick Johnson to anyone looking to buy or sell a property!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="photo">
+                                <img src="uploads/t2.jpg" alt="" />
+                            </div>
+                            <div class="text">
+                                <h4>Sal Harvey</h4>
+                                <p>Director, DEF Company</p>
+                            </div>
+                            <div class="description">
+                                <p>
+                                    I had the pleasure of working with Smith Brent during my recent home search and I can't speak highly enough of their services. Smith Brent listened to my needs and helped me find the perfect home that met all of my requirements. They were always there for me, from the initial search to closing, and made the process seamless and enjoyable. I would recommend Smith Brent to anyone looking for an experienced and dedicated real estate agent.
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <?php
-                }
-            ?>
-            
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<?php endif; ?>
+
+    <div class="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading">
+                        <h2>Latest News</h2>
+                        <p>
+                            Check our latest news from the following section
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                        <div class="photo">
+                            <img src="uploads/blog1.jpg" alt="" />
+                        </div>
+                        <div class="text">
+                            <h2>
+                                <a href="post.html">5 Tips for Finding Your Dream Home</a>
+                            </h2>
+                            <div class="short-des">
+                                <p>
+                                    Lorem ipsum dolor sit amet, nibh saperet
+                                    te pri, at nam diceret disputationi. Quo
+                                    an consul impedit, usu possim evertitur
+                                    dissentiet ei.
+                                </p>
+                            </div>
+                            <div class="button">
+                                <a href="post.html" class="btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                        <div class="photo">
+                            <img src="uploads/blog2.jpg" alt="" />
+                        </div>
+                        <div class="text">
+                            <h2>
+                                <a href="post.html">Pros & Cons of Renting vs. Buying</a>
+                            </h2>
+                            <div class="short-des">
+                                <p>
+                                    Nec in rebum primis causae. Affert
+                                    iisque ex pri, vis utinam vivendo
+                                    definitionem ad, nostrum omnes que per
+                                    et. Omnium antiopam.
+                                </p>
+                            </div>
+                            <div class="button">
+                                <a href="post.html" class="btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                        <div class="photo">
+                            <img src="uploads/blog3.jpg" alt="" />
+                        </div>
+                        <div class="text">
+                            <h2>
+                                <a href="post.html">Maximizing Your Investment in 2023</a>
+                            </h2>
+                            <div class="short-des">
+                                <p>
+                                    Id pri placerat voluptatum, vero dicunt
+                                    dissentiunt eum et, adhuc iisque vis no.
+                                    Eu suavitate conten tiones definitionem
+                                    mel, ex vide.
+                                </p>
+                            </div>
+                            <div class="button">
+                                <a href="post.html" class="btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <?php include 'footer.php'; ?>

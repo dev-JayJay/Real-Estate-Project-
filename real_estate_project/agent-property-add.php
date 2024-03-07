@@ -7,14 +7,14 @@ if (!isset($_SESSION['agents'])) {
 }
 
 // If this agent did not purchase any package, he will be redirected to payment page
-$statement = $pdo->prepare("SELECT * FROM orders WHERE agent_id=?");
-$statement->execute(array($_SESSION['agents']['id']));
-$total = $statement->rowCount();
-if(!$total) {
-    $_SESSION['error_message'] = 'Please purchase a package first';
-    header('location: '.BASE_URL.'agent-payment');
-    exit;
-}
+// $statement = $pdo->prepare("SELECT * FROM orders WHERE agent_id=?");
+// $statement->execute(array($_SESSION['agents']['id']));
+// $total = $statement->rowCount();
+// if(!$total) {
+//     $_SESSION['error_message'] = 'Please purchase a package first';
+//     header('location: '.BASE_URL.'agent-payment');
+//     exit;
+// }
 
 // If this agent already added his maximum number of allowed properties, he will be redirected to the properties view page and any of the added properties should be removed in order to add a new one.
 $statement = $pdo->prepare("SELECT * 
@@ -40,11 +40,11 @@ if($total_properties == $allowed_properties) {
 
 
 // If the expire date is passed, the agent will be redirected to the payment page
-if(strtotime(date('Y-m-d')) > strtotime($expire_date)) {
-    $_SESSION['error_message'] = 'Your package is expired. Please purchase a new package.';
-    header('location: '.BASE_URL.'agent-payment');
-    exit;
-}
+// if(strtotime(date('Y-m-d')) > strtotime($expire_date)) {
+//     $_SESSION['error_message'] = 'Your package is expired. Please purchase a new package.';
+//     header('location: '.BASE_URL.'agent-payment');
+//     exit;
+// }
 ?>
 
 <?php
