@@ -3,6 +3,7 @@
 <?php 
 if (!isset($_SESSION['customers'])) {
     header('location:'.BASE_URL.'customer-login');
+    exit;
 }
 ?>
 

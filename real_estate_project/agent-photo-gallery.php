@@ -24,13 +24,13 @@ if(isset($_POST['form_submit'])) {
         $statement->execute(array($_SESSION['agents']['id'],1));
         $result1 = $statement->fetchAll(PDO::FETCH_ASSOC);
         foreach ($result1 as $row) {
-            $allowed_photos = $row['allowed_photos'];
+            $allowed_photo = $row['allowed_photo'];
         }
 
-        $statement = $pdo->prepare("SELECT * FROM property_photos WHERE property_id=?");
+        $statement = $pdo->prepare("SELECT * FROM properties_photos WHERE property_id=?");
         $statement->execute(array($_REQUEST['id']));
         $total_photos = $statement->rowCount();
-        if($total_photos == $allowed_photos) {
+        if($total_photos == $allowed_photo) {
             throw new Exception("You have reached your maximum limit of photos. Please upgrade your package. or delete existing photos to add new photo.");
         }
         

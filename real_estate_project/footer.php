@@ -146,5 +146,15 @@
         </script>
         <?php unset($_SESSION['success_message']); ?>
     <?php endif; ?>
+    <?php if (isset($_SESSION['error_message'])): ?>
+        <script>
+            iziToast.show({
+                message: '<?php echo $_SESSION['error_message']; ?>',
+                position: 'topRight',
+                color: 'green',
+            });
+        </script>
+        <?php unset($_SESSION['error_message']); ?>
+    <?php endif; ?>
 </body>
 </html>
