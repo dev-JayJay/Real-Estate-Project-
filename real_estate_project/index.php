@@ -72,261 +72,103 @@
     </div>
 
 
-    <div class="property">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="heading">
-                        <h2>Featured Properties</h2>
-                        <p>Find out the awesome properties that you must love</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="item">
-                        <div class="photo">
-                            <img class="main" src="uploads/property1.jpg" alt="">
-                            <div class="top">
-                                <div class="status-sale">
-                                    For Sale
-                                </div>
-                                <div class="featured">
-                                    Featured
-                                </div>
-                            </div>
-                            <div class="price">$56,000</div>
-                            <div class="wishlist"><a href=""><i class="far fa-heart"></i></a></div>
-                        </div>
-                        <div class="text">
-                            <h3><a href="property.html">Sea Side Property</a></h3>
-                            <div class="detail">
-                                <div class="stat">
-                                    <div class="i1">2500 sqft</div>
-                                    <div class="i2">2 Bed</div>
-                                    <div class="i3">2 Bath</div>
-                                </div>
-                                <div class="address">
-                                    <i class="fas fa-map-marker-alt"></i> 937 Jamajo Blvd, Orlando FL 32803
-                                </div>
-                                <div class="type-location">
-                                    <div class="i1">
-                                        <i class="fas fa-edit"></i> Villa
-                                    </div>
-                                    <div class="i2">
-                                        <i class="fas fa-location-arrow"></i> Orland
-                                    </div>
-                                </div>
-                                <div class="agent-section">
-                                    <img class="agent-photo" src="uploads/agent1.jpg" alt="">
-                                    <a href="">Robert Johnson (AA Property)</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="item">
-                        <div class="photo">
-                            <img class="main" src="uploads/property2.jpg" alt="">
-                            <div class="top">
-                                <div class="status-rent">
-                                    For Rent
-                                </div>
-                                <div class="featured">
-                                    Featured
-                                </div>
-                            </div>
-                            <div class="price">$4,900</div>
-                            <div class="wishlist"><a href=""><i class="far fa-heart"></i></a></div>
-                        </div>
-                        <div class="text">
-                            <h3><a href="property.html">Modern Villa</a></h3>
-                            <div class="detail">
-                                <div class="stat">
-                                    <div class="i1">2500 sqft</div>
-                                    <div class="i2">2 Bed</div>
-                                    <div class="i3">2 Bath</div>
-                                </div>
-                                <div class="address">
-                                    <i class="fas fa-map-marker-alt"></i> 2006 E Central Blvd, Orlando FL 32803
-                                </div>
-                                <div class="type-location">
-                                    <div class="i1">
-                                        <i class="fas fa-edit"></i> Condo
-                                    </div>
-                                    <div class="i2">
-                                        <i class="fas fa-location-arrow"></i> Orland
-                                    </div>
-                                </div>
-                                <div class="agent-section">
-                                    <img class="agent-photo" src="uploads/agent2.jpg" alt="">
-                                    <a href="">Eric Williams (BB Property)</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="item">
-                        <div class="photo">
-                            <img class="main" src="uploads/property3.jpg" alt="">
-                            <div class="top">
-                                <div class="status-sale">
-                                    For Sale
-                                </div>
-                            </div>
-                            <div class="price">$79,000</div>
-                            <div class="wishlist"><a href=""><i class="far fa-heart"></i></a></div>
-                        </div>
-                        <div class="text">
-                            <h3><a href="property.html">Home with Swimming Pool</a></h3>
-                            <div class="detail">
-                                <div class="stat">
-                                    <div class="i1">2500 sqft</div>
-                                    <div class="i2">2 Bed</div>
-                                    <div class="i3">2 Bath</div>
-                                </div>
-                                <div class="address">
-                                    <i class="fas fa-map-marker-alt"></i> 3152 Plaza Terrace, Orlando FL 32803
-                                </div>
-                                <div class="type-location">
-                                    <div class="i1">
-                                        <i class="fas fa-edit"></i> Apartment
-                                    </div>
-                                    <div class="i2">
-                                        <i class="fas fa-location-arrow"></i> New York
-                                    </div>
-                                </div>
-                                <div class="agent-section">
-                                    <img class="agent-photo" src="uploads/agent3.jpg" alt="">
-                                    <a href="">Brent Grundy (CC Property)</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="item">
-                        <div class="photo">
-                            <img class="main" src="uploads/property4.jpg" alt="">
-                            <div class="top">
-                                <div class="status-sale">
-                                    For Sale
-                                </div>
-                            </div>
-                            <div class="price">$79,000</div>
-                            <div class="wishlist"><a href=""><i class="far fa-heart"></i></a></div>
-                        </div>
-                        <div class="text">
-                            <h3><a href="property.html">Apartment in New York</a></h3>
-                            <div class="detail">
-                                <div class="stat">
-                                    <div class="i1">2500 sqft</div>
-                                    <div class="i2">2 Bed</div>
-                                    <div class="i3">2 Bath</div>
-                                </div>
-                                <div class="address">
-                                    <i class="fas fa-map-marker-alt"></i> 3152 Plaza Terrace, Orlando FL 32803
-                                </div>
-                                <div class="type-location">
-                                    <div class="i1">
-                                        <i class="fas fa-edit"></i> Apartment
-                                    </div>
-                                    <div class="i2">
-                                        <i class="fas fa-location-arrow"></i> New York
-                                    </div>
-                                </div>
-                                <div class="agent-section">
-                                    <img class="agent-photo" src="uploads/agent4.jpg" alt="">
-                                    <a href="">Jason Schwartz (DD Property)</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="item">
-                        <div class="photo">
-                            <img class="main" src="uploads/property5.jpg" alt="">
-                            <div class="top">
-                                <div class="status-sale">
-                                    For Sale
-                                </div>
-                            </div>
-                            <div class="price">$79,000</div>
-                            <div class="wishlist"><a href=""><i class="far fa-heart"></i></a></div>
-                        </div>
-                        <div class="text">
-                            <h3><a href="property.html">Nice Condo in Orlando</a></h3>
-                            <div class="detail">
-                                <div class="stat">
-                                    <div class="i1">2500 sqft</div>
-                                    <div class="i2">2 Bed</div>
-                                    <div class="i3">2 Bath</div>
-                                </div>
-                                <div class="address">
-                                    <i class="fas fa-map-marker-alt"></i> 3152 Plaza Terrace, Orlando FL 32803
-                                </div>
-                                <div class="type-location">
-                                    <div class="i1">
-                                        <i class="fas fa-edit"></i> Apartment
-                                    </div>
-                                    <div class="i2">
-                                        <i class="fas fa-location-arrow"></i> New York
-                                    </div>
-                                </div>
-                                <div class="agent-section">
-                                    <img class="agent-photo" src="uploads/agent5.jpg" alt="">
-                                    <a href="">Michael Wyatt (EE Property)</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="item">
-                        <div class="photo">
-                            <img class="main" src="uploads/property6.jpg" alt="">
-                            <div class="top">
-                                <div class="status-sale">
-                                    For Sale
-                                </div>
-                            </div>
-                            <div class="price">$79,000</div>
-                            <div class="wishlist"><a href=""><i class="far fa-heart"></i></a></div>
-                        </div>
-                        <div class="text">
-                            <h3><a href="property.html">Nice Villa in Boston</a></h3>
-                            <div class="detail">
-                                <div class="stat">
-                                    <div class="i1">2500 sqft</div>
-                                    <div class="i2">2 Bed</div>
-                                    <div class="i3">2 Bath</div>
-                                </div>
-                                <div class="address">
-                                    <i class="fas fa-map-marker-alt"></i> 3152 Plaza Terrace, Orlando FL 32803
-                                </div>
-                                <div class="type-location">
-                                    <div class="i1">
-                                        <i class="fas fa-edit"></i> Apartment
-                                    </div>
-                                    <div class="i2">
-                                        <i class="fas fa-location-arrow"></i> New York
-                                    </div>
-                                </div>
-                                <div class="agent-section">
-                                    <img class="agent-photo" src="uploads/agent6.jpg" alt="">
-                                    <a href="">Joshua Lash (FF Property)</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+<!-- <?php if($result[0]['featured_property_status'] == 'Show'): ?> -->
+<div class="property">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <div class="heading">
+                    <h2><?php echo $result[0]['featured_property_heading']; ?></h2>
+                    <p><?php echo $result[0]['featured_property_subheading']; ?></p>
+                </div> -->
             </div>
         </div>
+        <div class="row">
+            <?php
+            $statement = $pdo->prepare("SELECT p.*, l.name as location_name, t.name as type_name, a.full_name, a.company, a.photo
+                                        FROM properties p
+                                        JOIN locations l
+                                        ON p.location_id = l.id 
+                                        JOIN types t
+                                        ON p.type_id = t.id
+                                        JOIN agents a
+                                        ON p.agent_id = a.id
+                                        WHERE p.is_featured=? AND p.agent_id NOT IN (
+                                            SELECT a.id
+                                            FROM agents a
+                                            JOIN orders o 
+                                            ON a.id = o.agent_id
+                                            WHERE o.expire_date < ? AND o.currently_active = ?
+                                        )
+                                        LIMIT 6");
+            $statement->execute(['Yes',date('Y-m-d'),1]);
+            $result1 = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $total = $statement->rowCount();
+            if(!$total) {
+                ?>
+                <div class="col-md-12">
+                    No Property Found
+                </div>
+                <?php
+            }
+            else
+            {
+                foreach ($result1 as $row) {
+                    ?>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="item">
+                            <div class="photo">
+                                <img class="main" src="<?php echo BASE_URL; ?>uploads/<?php echo $row['featured_photo']; ?>" alt="">
+                                <div class="top">
+                                    <div class="status-<?php if($row['purpose']=='Rent') {echo 'rent';} else {echo 'sale';} ?>">
+                                        For <?php echo $row['purpose']; ?>
+                                    </div>
+                                    <div class="featured">
+                                        Featured
+                                    </div>
+                                </div>
+                                <div class="price">$<?php echo $row['price']; ?></div>
+                                <div class="wishlist"><a href="<?php echo BASE_URL; ?>customer-wishlist-add.php?id=<?php echo $row['id']; ?>"><i class="far fa-heart"></i></a></div>
+                            </div>
+                            <div class="text">
+                                <h3><a href="<?php echo BASE_URL; ?>property/<?php echo $row['id']; ?>/<?php echo $row['slug']; ?>"><?php echo $row['name']; ?></a></h3>
+                                <div class="detail">
+                                    <div class="stat">
+                                        <div class="i1"><?php echo $row['size']; ?> sqft</div>
+                                        <div class="i2"><?php echo $row['bedroom']; ?> Bed</div>
+                                        <div class="i3"><?php echo $row['bathroom']; ?> Bath</div>
+                                    </div>
+                                    <div class="address">
+                                        <i class="fas fa-map-marker-alt"></i> <?php echo $row['address']; ?>
+                                    </div>
+                                    <div class="type-location">
+                                        <div class="i1">
+                                            <i class="fas fa-edit"></i> <?php echo $row['type_name']; ?>
+                                        </div>
+                                        <div class="i2">
+                                            <i class="fas fa-location-arrow"></i> <?php echo $row['location_name']; ?>
+                                        </div>
+                                    </div>
+                                    <div class="agent-section">
+                                        <?php if($row['photo'] == ''):  ?>
+                                            <img class="agent-photo" src="<?php echo BASE_URL; ?>uploads/default.png" alt="">
+                                        <?php else:  ?>
+                                            <img class="agent-photo" src="<?php echo BASE_URL; ?>uploads/<?php echo $row['photo']; ?>" alt="">
+                                        <?php endif;  ?>
+                                        <a href=""><?php echo $row['full_name']; ?></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+        </div>
     </div>
+</div>
+<!-- <?php endif; ?> -->
 
 
     <div class="why-choose" style="background-image: url(uploads/why-choose.jpg)">
