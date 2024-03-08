@@ -72,7 +72,6 @@
     </div>
 
 
-<!-- <?php if($result[0]['featured_property_status'] == 'Show'): ?> -->
 <div class="property">
     <div class="container">
         <div class="row">
@@ -93,15 +92,9 @@
                                         ON p.type_id = t.id
                                         JOIN agents a
                                         ON p.agent_id = a.id
-                                        WHERE p.is_featured=? AND p.agent_id NOT IN (
-                                            SELECT a.id
-                                            FROM agents a
-                                            JOIN orders o 
-                                            ON a.id = o.agent_id
-                                            WHERE o.expire_date < ? AND o.currently_active = ?
-                                        )
+                                        WHERE p.is_featured=? 
                                         LIMIT 6");
-            $statement->execute(['Yes',date('Y-m-d'),1]);
+            $statement->execute(['Yes']);
             $result1 = $statement->fetchAll(PDO::FETCH_ASSOC);
             $total = $statement->rowCount();
             if(!$total) {
@@ -168,7 +161,6 @@
         </div>
     </div>
 </div>
-<!-- <?php endif; ?> -->
 
 
     <div class="why-choose" style="background-image: url(uploads/why-choose.jpg)">
