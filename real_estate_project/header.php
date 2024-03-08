@@ -92,7 +92,7 @@ $cur_page = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"],"/")
                                 <a href="blog.html" class="nav-link">Blog</a>
                             </li>
                             <li class="nav-item">
-                                <a href="contact.html" class="nav-link">Contact</a>
+                                <a href="<?php echo BASE_URL; ?>contact" class="nav-link">Contact</a>
                             </li>
                             <?php if(isset($_SESSION['customers'])): ?>
                             <li class="nav-item">
