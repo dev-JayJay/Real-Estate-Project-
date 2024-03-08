@@ -13,12 +13,12 @@
                             </p>
                         </div>
                         <div class="search-section">
-                            <form action="" method="post">
+                            <form action="<?php echo BASE_URL; ?>properties.php" method="get">
                                 <div class="inner">
                                     <div class="row">
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                <input type="text" name="" class="form-control" placeholder="Find Anything ...">
+                                                <input type="text" name="" class="form-control" placeholder="Property Name ...">
                                             </div>
                                         </div>
                                         <div class="col-lg-3">

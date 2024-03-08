@@ -320,37 +320,38 @@ if(!empty($_GET['price'])) {
 
                             if($total_rows):
 
-                            $common_url_part = BASE_URL.'properties.php?name='.$_GET['name'].'&location_id='.$_GET['location_id'].'&type_id='.$_GET['type_id'].'&amenity_id='.$_GET['amenity_id'].'&purpose='.$_GET['purpose'].'&bedrooms='.$_GET['bedrooms'].'&bathrooms='.$_GET['bathrooms'].'&price='.$_GET['price'];
+                            // $common_url_part = BASE_URL.'properties.php?name='.$_GET['name'].'&location_id='.$_GET['location_id'].'&type_id='.$_GET['type_id'].'&amenity_id='.$_GET['amenity_id'].'&purpose='.$_GET['purpose'].'&bedrooms='.$_GET['bedrooms'].'&bathrooms='.$_GET['bathrooms'].'&price='.$_GET['price'];
 
-                            ?><div class="col-md-12"><?php
+                            // ?><div class="col-md-12"><?php
 
-                            if(isset($_REQUEST['p'])) {
-                                if($_REQUEST['p'] == 1) {
-                                    echo '<a class="links links_gray" href="javascript:void;"> << </a>';
-                                } else {
-                                    echo '<a class="links" href="'.$common_url_part.'&p='.($_REQUEST['p']-1).'"> << </a>';
-                                }
-                            } else {
-                                echo '<a class="links links_gray" href="javascript:void;"> << </a>';
-                            }
+                            // if(isset($_REQUEST['p'])) {
+                            //     if($_REQUEST['p'] == 1) {
+                            //         echo '<a class="links links_gray" href="javascript:void;"> << </a>';
+                            //     } else {
+                            //         echo '<a class="links" href="'.$common_url_part.'&p='.($_REQUEST['p']-1).'"> << </a>';
+                            //     }
+                            // } else {
+                            //     echo '<a class="links links_gray" href="javascript:void;"> << </a>';
+                            // }
 
 
-                            for($i=1;$i<=$total_pages;$i++) {
-                                echo '<a class="links" href="'.$common_url_part.'&p='.$i.'">'.$i.'</a>';
-                            }
+                            // for($i=1;$i<=$total_pages;$i++) {
+                            //     echo '<a class="links" href="'.$common_url_part.'&p='.$i.'">'.$i.'</a>';
+                            // }
 
-                            if(isset($_REQUEST['p'])) {
-                                if($_REQUEST['p'] == $total_pages) {
-                                    echo '<a class="links links_gray" href="javascript:void;"> >> </a>';
-                                } else {
-                                    echo '<a class="links" href="'.$common_url_part.'&p='.($_REQUEST['p']+1).'"> >> </a>';
-                                }
-                            } else {
-                                echo '<a class="links" href="'.$common_url_part.'&p=2"> >> </a>';
-                            }
-                            ?></div><?php
-                            endif;
-                            ?>
+                            // if(isset($_REQUEST['p'])) {
+                            //     if($_REQUEST['p'] == $total_pages) {
+                            //         echo '<a class="links links_gray" href="javascript:void;"> >> </a>';
+                            //     } else {
+                            //         echo '<a class="links" href="'.$common_url_part.'&p='.($_REQUEST['p']+1).'"> >> </a>';
+                            //     }
+                            // } else {
+                            //     echo '<a class="links" href="'.$common_url_part.'&p=2"> >> </a>';
+                            // }
+                            // ?>
+                            </div><?php
+                             endif;
+                             ?>
 
 
                         </div>
