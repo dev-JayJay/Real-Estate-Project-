@@ -172,7 +172,8 @@ if(isset($_POST['form_submit'])) {
                                 map,
                                 is_featured,
                                 status
-                                ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                                posted_on,
+                                ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         $statement->execute([
                             $_SESSION['agents']['id'],
                             $_POST['location_id'],
@@ -194,7 +195,8 @@ if(isset($_POST['form_submit'])) {
                             $_POST['built_year'],
                             $_POST['map'],
                             $_POST['is_featured'],
-                            'Active'
+                            'Active',
+                            date('Y-m-d')
                         ]); 
 
         $success_message = 'Property is added successfully.';
