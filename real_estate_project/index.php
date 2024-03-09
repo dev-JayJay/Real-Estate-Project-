@@ -358,13 +358,13 @@
                         <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="item">
                             <div class="photo">
-                                <a href="location.html"><img src="<?php echo BASE_URL; ?>uploads/<?php echo $row['photo']; ?>" alt=""></a>
+                                <a href="<?php echo BASE_URL; ?>location.php?slug=<?php echo $row['slug']; ?>"><img src="<?php echo BASE_URL; ?>uploads/<?php echo $row['photo']; ?>" alt=""></a>
                             </div>
                         <div class="text">
-                            <h2><a href="location.html">Boston</a></h2>
+                            <h2><a href="<?php echo BASE_URL; ?>location.php?slug=<?php echo $row['slug']; ?>"><?php echo $row['name']; ?></a></h2>
                             <h4>(10 Properties)</h4>
                         </div>
-                    </div>
+                    </div> 
                 </div>
                         <?php
                     }
