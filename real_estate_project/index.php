@@ -233,102 +233,34 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-3">
+
+            <?php 
+             $statement = $pdo->prepare("SELECT * FROM agents WHERE status=?");
+             $statement->execute([1]);
+             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+             foreach ($result as $row) {
+                 ?>
+                 <div class="col-lg-3 col-md-3">
                     <div class="item">
                         <div class="photo">
-                            <a href=""><img src="uploads/agent1.jpg" alt=""></a>
+                            <a href="<?php echo BASE_URL; ?>agent/<?php echo $row['id']; ?>">
+                                <?php if ($row['photo'] == ''):?>
+                                    <img src="<?php echo BASE_URL; ?>uploads/default.png" alt="">
+                                <?php else: ?>
+                                    <img src="<?php echo BASE_URL; ?>uploads/<?php echo $row['photo']; ?>" alt="">
+                                <?php endif; ?>
+                            </a>
                         </div>
                         <div class="text">
                             <h2>
-                                <a href="agent.html">Michael Wyatt</a>
+                                <a href="<?php echo BASE_URL; ?>agent/<?php echo $row['id']; ?>"><?php echo $row['full_name']?></a>
                             </h2>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="item">
-                        <div class="photo">
-                            <a href=""><img src="uploads/agent2.jpg" alt=""></a>
-                        </div>
-                        <div class="text">
-                            <h2>
-                                <a href="agent.html">Jason Schwartz</a>
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="item">
-                        <div class="photo">
-                            <a href=""><img src="uploads/agent3.jpg" alt=""></a>
-                        </div>
-                        <div class="text">
-                            <h2>
-                                <a href="agent.html">Joshua Lash</a>
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="item">
-                        <div class="photo">
-                            <a href=""><img src="uploads/agent4.jpg" alt=""></a>
-                        </div>
-                        <div class="text">
-                            <h2>
-                                <a href="agent.html">Eric Williams</a>
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="item">
-                        <div class="photo">
-                            <a href=""><img src="uploads/agent5.jpg" alt=""></a>
-                        </div>
-                        <div class="text">
-                            <h2>
-                                <a href="agent.html">Jay Smith</a>
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="item">
-                        <div class="photo">
-                            <a href=""><img src="uploads/agent6.jpg" alt=""></a>
-                        </div>
-                        <div class="text">
-                            <h2>
-                                <a href="agent.html">Joseph Commons</a>
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="item">
-                        <div class="photo">
-                            <a href=""><img src="uploads/agent7.jpg" alt=""></a>
-                        </div>
-                        <div class="text">
-                            <h2>
-                                <a href="agent.html">Richard Renner</a>
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="item">
-                        <div class="photo">
-                            <a href=""><img src="uploads/agent8.jpg" alt=""></a>
-                        </div>
-                        <div class="text">
-                            <h2>
-                                <a href="agent.html">Ryan Dingle</a>
-                            </h2>
-                        </div>
-                    </div>
-                </div>
+                 </div> 
+                <?php
+             }
+            ?>
             </div>
         </div>
     </div>
