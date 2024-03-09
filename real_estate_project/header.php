@@ -77,7 +77,7 @@ $cur_page = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"],"/")
                                 <a href="properties.html" class="nav-link">Properties</a>
                             </li>
                             <li class="nav-item">
-                                <a href="agents.html" class="nav-link">Agents</a>
+                                <a href="<?php echo BASE_URL; ?>agents/" class="nav-link">Agents</a>
                             </li>
                             <li class="nav-item">
                                 <a href="<?php echo BASE_URL; ?>locations" class="nav-link">Locations</a>
