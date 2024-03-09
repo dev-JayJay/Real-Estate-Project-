@@ -9,8 +9,14 @@
         ">
             <a href="<?php echo BASE_URL; ?>customer-dashboard">Dashboard</a>
         </li>
-        <li class="list-group-item">
-            <a href="user-wishlist.html">Wishlist</a>
+        <li class="list-group-item"
+        <?php
+        if ($cur_page == 'customer-wishlist.php') {
+            echo 'active';
+        }
+        ?>
+        >
+            <a href="customer-wishlist">Wishlist</a>
         </li>
         <li class="list-group-item
         <?php
