@@ -33,7 +33,7 @@ if(!isset($_SESSION['admin'])) {
                                     <tbody>
                                         <?php
                                         $i=0;
-                                        $statement = $pdo->prepare("SELECT * FROM pakages ORDER BY id ASC");
+                                        $statement = $pdo->prepare("SELECT * FROM packages ORDER BY id ASC");
                                         $statement->execute();
                                         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                         foreach ($result as $row) {

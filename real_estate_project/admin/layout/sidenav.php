@@ -30,7 +30,7 @@
 
             <li class="<?php if($cur_page == 'package-view.php'||$cur_page == 'package-add.php'||$cur_page == 'package-edit.php') {echo 'active';} ?>"><a class="nav-link" href="<?php echo ADMIN_URL; ?>package-view.php"><i class="fas fa-hand-point-right"></i> <span>Packages</span></a></li>
 
-            <!-- <li class="<?php if($cur_page == 'order-view.php') {echo 'active';} ?>"><a class="nav-link" href="<?php echo ADMIN_URL; ?>order-view.php"><i class="fas fa-hand-point-right"></i> <span>Orders</span></a></li>
+            <li class="<?php if($cur_page == 'order-view.php') {echo 'active';} ?>"><a class="nav-link" href="<?php echo ADMIN_URL; ?>order-view.php"><i class="fas fa-hand-point-right"></i> <span>Orders</span></a></li>
 
             <li class="<?php if($cur_page == 'message-view.php'||$cur_page == 'message-detail.php') {echo 'active';} ?>"><a class="nav-link" href="<?php echo ADMIN_URL; ?>message-view.php"><i class="fas fa-hand-point-right"></i> <span>Messages</span></a></li>
 
@@ -50,14 +50,14 @@
 
             <li class="<?php if($cur_page == 'terms-view.php') {echo 'active';} ?>"><a class="nav-link" href="<?php echo ADMIN_URL; ?>terms-view.php"><i class="fas fa-hand-point-right"></i> <span>Terms</span></a></li>
 
-            <li class="<?php if($cur_page == 'privacy-view.php') {echo 'active';} ?>"><a class="nav-link" href="<?php echo ADMIN_URL; ?>privacy-view.php"><i class="fas fa-hand-point-right"></i> <span>Privacy</span></a></li> -->
+            <li class="<?php if($cur_page == 'privacy-view.php') {echo 'active';} ?>"><a class="nav-link" href="<?php echo ADMIN_URL; ?>privacy-view.php"><i class="fas fa-hand-point-right"></i> <span>Privacy</span></a></li>
             
 
-            <!-- <li class="<?php if($cur_page == 'form.php') {echo 'active';} ?>"><a class="nav-link" href="<?php echo ADMIN_URL; ?>form.php"><i class="fas fa-hand-point-right"></i> <span>Form</span></a></li>
+             <li class="<?php if($cur_page == 'form.php') {echo 'active';} ?>"><a class="nav-link" href="<?php echo ADMIN_URL; ?>form.php"><i class="fas fa-hand-point-right"></i> <span>Form</span></a></li>
 
             <li class="<?php if($cur_page == 'table.php') {echo 'active';} ?>"><a class="nav-link" href="<?php echo ADMIN_URL; ?>table.php"><i class="fas fa-hand-point-right"></i> <span>Table</span></a></li>
 
-            <li class="<?php if($cur_page == 'invoice.php') {echo 'active';} ?>"><a class="nav-link" href="<?php echo ADMIN_URL; ?>invoice.php"><i class="fas fa-hand-point-right"></i> <span>Invoice</span></a></li> -->
+            <li class="<?php if($cur_page == 'invoice.php') {echo 'active';} ?>"><a class="nav-link" href="<?php echo ADMIN_URL; ?>invoice.php"><i class="fas fa-hand-point-right"></i> <span>Invoice</span></a></li> 
 
         </ul>
     </aside>
