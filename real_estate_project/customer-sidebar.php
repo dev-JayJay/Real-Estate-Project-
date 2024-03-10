@@ -18,6 +18,15 @@
         >
             <a href="customer-wishlist">Wishlist</a>
         </li>
+        <li class="list-group-item"
+        <?php
+        if ($cur_page == 'customer-messages.php') {
+            echo 'active';
+        }
+        ?>
+        >
+            <a href="customer-messages">Messages</a>
+        </li>
         <li class="list-group-item
         <?php
         if ($cur_page == 'customer-edit-profile.php') {
