@@ -1,10 +1,20 @@
 <?php include 'header.php'; ?>
 
-<?php 
-if (!isset($_SESSION['customers'])) {
-    header('location:'.BASE_URL.'customer-login');
+<?php
+if(!isset($_SESSION['customers'])) {
+    header('location: '.BASE_URL.'customer-login');
     exit;
 }
+?>
+
+<?php
+$statement = $pdo->prepare("SELECT * FROM wishlists WHERE customer_id=?");
+$statement->execute(array($_SESSION['customers']['id']));
+$total_wishlist = $statement->rowCount();
+
+$statement = $pdo->prepare("SELECT * FROM messages WHERE customer_id=?");
+$statement->execute(array($_SESSION['customers']['id']));
+$total_messages = $statement->rowCount();
 ?>
 
 <div class="page-top" style="background-image: url('<?php echo BASE_URL; ?>uploads/banner.jpg')">
@@ -17,6 +27,7 @@ if (!isset($_SESSION['customers'])) {
         </div>
     </div>
 </div>
+
 <div class="page-content user-panel">
     <div class="container">
         <div class="row">
@@ -24,70 +35,20 @@ if (!isset($_SESSION['customers'])) {
                 <?php include 'customer-sidebar.php'; ?>
             </div>
             <div class="col-lg-9 col-md-12">
-                <h3><?php echo $_SESSION['customers']['full_name']; ?></h3>
-                <p>See all the statistics at a glance:</p>
-
+                <h3 class="mb_20">Hello, <?php echo $_SESSION['customers']['full_name']; ?></h3>
                 <div class="row box-items">
                     <div class="col-md-4">
                         <div class="box1">
-                            <h4>12</h4>
-                            <p>Active Properties</p>
+                            <h4><?php echo $total_wishlist; ?></h4>
+                            <p>Wishlist Items</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="box2">
-                            <h4>3</h4>
-                            <p>Pending Properties</p>
+                            <h4><?php echo $total_messages; ?></h4>
+                            <p>Messages</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="box3">
-                            <h4>5</h4>
-                            <p>Featured Properties</p>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="mt-5">Recent Properties</h3>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <tbody>
-                            <tr>
-                                <th>SL</th>
-                                <th>Name</th>
-                                <th>Category</th>
-                                <th>Location</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>1375 Stanley Avenue</td>
-                                <td>Villa</td>
-                                <td>New York</td>
-                                <td>
-                                    <span class="badge bg-success">Active</span>
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn-warning btn-sm text-white"><i class="fas fa-edit"></i></a>
-                                    <a href="" class="btn btn-danger btn-sm" onClick="return confirm('Are you sure?');"><i class="fas fa-trash-alt"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>3780 Ash Avenue</td>
-                                <td>Condo</td>
-                                <td>Boston</td>
-                                <td>
-                                    <span class="badge bg-danger">Pending</span>
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn-warning btn-sm text-white"><i class="fas fa-edit"></i></a>
-                                    <a href="" class="btn btn-danger btn-sm" onClick="return confirm('Are you sure?');"><i class="fas fa-trash-alt"></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>
