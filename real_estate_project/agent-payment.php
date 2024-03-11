@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+
 <?php
 if(!isset($_SESSION['agents'])) {
     header('location: '.BASE_URL.'agent-login');
@@ -21,7 +22,7 @@ if(isset($_POST['form_paypal'])) {
             $_SESSION['allowed_days'] = $row['allowed_days'];
         }
 
-        $statement = $pdo->prepare("SELECT * FROM orders WHERE agent_id=?");
+        $statement = $pdo->prepare("SELECT * FROM properties WHERE agent_id=?");
         $statement->execute([$_SESSION['agents']['id']]);
         $total_properties = $statement->rowCount();
     
@@ -65,7 +66,7 @@ if(isset($_POST['form_stripe'])) {
         }
 
         $statement = $pdo->prepare("SELECT * FROM properties WHERE agent_id=?");
-        $statement->execute([$_SESSION['agent']['id']]);
+        $statement->execute([$_SESSION['agents']['id']]);
         $total_properties = $statement->rowCount();
     
         if($allowed_properties != -1) {
@@ -208,9 +209,6 @@ if(isset($_POST['form_stripe'])) {
                                 </form>
                             </td>
                         </tr>
-            </td>
-                            </tr>
-                        </tbody>
                     </table>
                 </div>
             </div>
