@@ -99,9 +99,11 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="right">
                         <ul>
-                            <li><a href="terms-of-use.php">Terms of Use</a></li>
                             <li>
-                                <a href="privacy.html">Privacy Policy</a>
+                            <a href="<?php echo BASE_URL; ?>terms-of-use">Terms of Use</a>
+                            </li>
+                            <li>
+                            <a href="<?php echo BASE_URL; ?>privacy-policy">Privacy Policy</a>
                             </li>
                         </ul>
                     </div>
