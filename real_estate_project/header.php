@@ -8,6 +8,17 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 $cur_page = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
+
+$sessionTimeout = 1200; // 20 minutes
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > $sessionTimeout) {
+    session_unset();
+    session_destroy();
+    header('location: '.BASE_URL.'select-user');
+    exit;
+}
+// Update the last activity time
+$_SESSION['last_activity'] = time();
+
 ?>
 
 <!DOCTYPE html>
