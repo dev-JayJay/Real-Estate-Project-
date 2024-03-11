@@ -74,7 +74,7 @@
                             To get the latest news from our website, please
                             subscribe us here:
                         </p>
-                        <form action="" method="post">
+                        <form action="<?php echo BASE_URL; ?>ajax-newsletter.php" method="post" class="form_newsletter">
                             <div class="form-group">
                                 <input type="text" name="" class="form-control">
                             </div>
@@ -113,6 +113,44 @@
     <div class="scroll-top">
         <i class="fas fa-angle-up"></i>
     </div>
+
+    <script>
+(function($){
+	"use strict";
+	$(document).ready(function(){
+		$(".form_newsletter").on('submit', function(e){
+			e.preventDefault();
+			let formData = new FormData(this);
+			let form = this;
+			$.ajax({
+				url: this.action,
+	            type: 'POST',
+	            data: formData,
+				success: function(data) {
+					data = JSON.parse(data);
+					if(data.error_message) {
+                        iziToast.show({
+                            message: data.error_message,
+                            position: 'topRight',
+                            color: 'red',
+                        });
+					} else {
+						form.reset();
+                        iziToast.show({
+                            message: data.success_message,
+                            position: 'topRight',
+                            color: 'green',
+                        });
+					}
+				},
+				cache:false,
+				contentType:false,
+				processData:false
+			});
+		});
+	});
+})(jQuery);
+</script>
 
     <script src="<?php echo BASE_URL; ?>dist/js/custom.js"></script>
 
